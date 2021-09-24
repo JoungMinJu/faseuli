@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/challenge.css' %}"> 
+</head>
+
+<body>
+    <h1>Challenge</h1>
+    
+    <div class="">
+        현재까지 ##원을 아꼈어요!
+        <a href="{% url 'write' %}" id="make_challenge">new challenge</a>
+    </div>
+  
+    <div class="content">
+        스카이다이빙 하기 51/100
+        <a href="{% url 'detail' %}" id="record" >기록하기</a>
+    </div>
+
+    <div class="content">
+        스카이다이빙 하기 51/100
+        <a href="{% url 'detail' %}" id="record" >기록하기</a>
+    </div> 
+    
+    <div class="content">
+        스카이다이빙 하기 51/100
+        <a href="{% url 'detail' %}" id="record" >기록하기</a>
+    </div>
+</body>
+{% endblock %}

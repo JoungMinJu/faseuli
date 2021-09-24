@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파슬리</title>
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css"/>
+    <script src="https://kit.fontawesome.com/881cd29a28.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Main Page -->
+    <section id="progress">
+        <div class="progress_container">
+            <div class="progress_subcontainer">
+                <div class="progress_text">
+                    <div class="progress_user">사자님</div>
+                    <b><div class="progress_title">목표 : 6억</div></b>
+                    <b><div class="progress_title">현재 : 2억</div></b>
+                    <b><div class="progress_title">달성률 : 33%</div></b>
+                </div>
+                <a href="#">
+                    <button id="make_plan_Btn">새 계획 만들기</button>
+                </a>
+            </div>
+            <div class="progress_bar_container">
+                <div class="progress_bar">
+                    <div class="progress_value" style="width: 33%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="plan">
+        <div class="plan_container">
+            <div class="plan_image_container">
+                <img src="http://placehold.it/100x100" alt="계획사진" class="plan_img">
+            </div>
+            <div class="plan_description">
+                <div class="plan_title">포르쉐 사기</div>
+            </div>
+            <div class="plan_point_container">
+                <div class="plan_point">2억</div>
+            </div>
+            <button class="plan_delete">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+        <div class="plan_container">
+            <div class="plan_image_container">
+                <img src="http://placehold.it/100x100" alt="계획사진" class="plan_img">
+            </div>
+            <div class="plan_description">
+                <div class="plan_title">카페 차리기</div>
+            </div>
+            <div class="plan_point_container">
+                <div class="plan_point">4억</div>
+            </div>
+            <button class="plan_delete">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+    </section>
+    <!-- Recommand -->
+    <section id="recommand" class="section section__container">
+        <h1># 운동 인생 계획 추천</h1>
+        <div class="recommand__bucketlists">
+            <div class="recommand__bucket"> 
+                <div class="recommand__bucket__image">
+                </div>            
+                <h3 class="recommand__bucket__title">스카이 다이빙</h3>
+                <p class="recommand__bucket__description">예상 금액 : 100만원</p>
+            </div>
+            <div class="recommand__bucket"> 
+                <div class="recommand__bucket__image">
+                </div> 
+                <h3 class="recommand__bucket__title">영국 축구경기 관람하기</h3>
+                <p class="recommand__bucket__description">예상 금액 : 200만원</p>
+            </div>
+            <div class="recommand__bucket"> 
+                <div class="recommand__bucket__image">
+                </div>            
+                <h3 class="recommand__bucket__title">PT 1년 내내 받기</h3>
+                <p class="recommand__bucket__description">예상 금액 : 400만원</p>
+            </div>
+        </div>
+        <h1># 음악 인생 계획 추천</h1>
+        <div class="recommand__bucketlists">
+            <div class="recommand__bucket"> 
+                <div class="recommand__bucket__image">
+                </div>            
+                <h3 class="recommand__bucket__title">음악 풀 장비 사기</h3>
+                <p class="recommand__bucket__description">예상 금액 : 1000만원</p>
+            </div>
+            <div class="recommand__bucket"> 
+                <div class="recommand__bucket__image"></div> 
+                <h3 class="recommand__bucket__title">글라스톤베리 락페스티벌 가기</h3>
+                <p class="recommand__bucket__description">예상 금액 : 200만원</p>
+            </div>
+            <div class="recommand__bucket"> 
+                <div class="recommand__bucket__image">
+                </div>            
+                <h3 class="recommand__bucket__title">앨범 내보기</h3>
+                <p class="recommand__bucket__description">예상 금액 : 200만원</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

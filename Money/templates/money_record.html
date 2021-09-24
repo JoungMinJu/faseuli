@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/money.css' %}"> 
+</head>
+<body>
+    <h1>Recording Money</h1>
+    <br>
+    <div class="d"> 
+    ➕ <input type="text"> 원<br><br>
+    <a href="" id="money_record"> Save </a>
+    </div>   
+</body>
+{% endblock %}

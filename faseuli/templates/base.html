@@ -1,0 +1,71 @@
+{% load static %}
+<html>
+    <head>
+        <title>Faseuli</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+            #main_logo {
+                font-weight: bolder;
+                font-size:24px;
+                color : #4CCD97;
+                font-family: 'Poppins', sans-serif;
+                text-transform: capitalize;
+            }
+
+            body {
+                font-family: 'Poppins', sans-serif;
+                text-align: center;
+            } 
+
+            .startBtn {
+                background-color: aqua;
+            }
+
+            .navbar {
+                border-bottom: 1px solid rgb(167, 167, 167);
+                text-transform: lowercase;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            .navbar-brand {
+                color: rgb(32, 30, 30);
+            }
+
+            .navbar-text {
+                color: rgb(255, 255, 255);
+            }
+
+            a:link, a:visited {
+                color: rgb(109, 109, 109);
+                text-decoration: none;
+                display: inline-block;
+                border-radius:5px;
+                padding: 10px;
+            }
+
+            a:hover, a:active {
+                background-color: rgb(177, 174, 174);
+            } 
+        </style>
+    </head>
+    <header>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <a id="main_logo" href="/plan/main">Faseuli</a>
+              
+                <!-- <a class="navbar-brand" href="/plan/main">Life Plan</a> -->
+                <a class="navbar-brand" href="/money/main">Saving money</a>
+                <a class="navbar-brand" href="/challenge/main">Challenge</a>
+                <a class="navbar-brand" href="">logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <body>
+        {% block content%}
+        {% endblock %}
+    </body>
+</html>
