@@ -7,15 +7,12 @@ from User import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
-    # path('', home, name="home"),
+    path('', views.home, name="home"),
     
     path('user/signup', views.signup_view, name="signup"),
     path('user/login', views.login_view, name="login"),
     path('user/logout', views.logout_view, name="logout"),
     
-    path('', views.home, name="home"),
-
     path('plan/', include('Plan.urls')),
     path('challenge/', include('Challenge.urls')),
     path('money/', include('Money.urls')),
