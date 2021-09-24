@@ -29,10 +29,10 @@ def login_view(request):
         password = request.POST['password']
         User = auth.authenticate(username = username, password = password)
         print(User)
-    if User is not None:
-        auth.login(request, User)
-        return redirect('/admin')
-    return render(request, '.html')
+        if User is not None:
+            auth.login(request, User)
+            return redirect('/')
+    return render(request, 'login.html')
 
 #로그아웃
 @login_required
