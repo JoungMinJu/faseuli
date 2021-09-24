@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파슬리</title>
+    <link href="{% static 'css/signup.css' %}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div class = "signup_container">
+        <form action="{%url 'signup'%}" method="POST">
+            {%csrf_token%}
+            <div class="signup_title">회원가입</div>
+            <div class="signup_input_container">
+                <div class="signup_input_title">아이디</div>
+                <input type="text" class="signup" name="username" placeholder="아이디">
+            </div>
+            <div class="signup_input_container">
+                <div class="signup_input_title">비밀번호</div>
+                <input type="password" class="signup" name="password1" placeholder="비밀번호">
+            </div>
+            <div class="signup_input_container">
+                <div class="signup_input_title">비밀번호 확인</div>
+                <input type="password" class="signup" name="password2" placeholder="비밀번호 확인">
+            </div>
+            <div class="signup_input_container">
+                <div class="signup_input_title">닉네임</div>
+                <input type="text" class="signup" name="nickname" placeholder="닉네임">
+            </div>
+            <div class="signup_input_container">
+                <div class="signup_input_title">나이</div>
+                <input type="text" class="signup" name="age" placeholder="나이">
+            </div>
+            <div class="signup_input_container">
+                <div class="signup_input_title">관심사</div>
+                <div>
+                <span id="hobbyRadio"><input type="radio" name="hobby" value="미술">미술</span>   
+                <span id="hobbyRadio"><input type="radio" name="hobby" value="레저">레저</span>
+                <span id="hobbyRadio"><input type="radio" name="hobby" value="음악">음악</span>                
+                <span id="hobbyRadio"><input type="radio" name="hobby" value="공예">공예</span>
+                </div>  
+                <div>            
+                <span id="hobbyRadio"><input type="radio" name="hobby" value="스포츠">스포츠</span>                
+                <span id="hobbyRadio"><input type="radio" name="hobby" value="재테크">재테크</span>                
+                <span id="hobbyRadio"><input type="radio" name="hobby" value="여행">여행</span>                
+                <span id="hobbyRadio"><input type="radio" name="hobby" value="사업">사업</span>
+                </div>                  
+            </div>
+            <button id="confirmBtn" type="submit">완료</button>
+        </form>
+    </div>
+</body>
+</html>
