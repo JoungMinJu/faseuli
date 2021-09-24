@@ -3,6 +3,9 @@ from django.contrib import auth
 from .models import User
 from django.contrib.auth.decorators import login_required
 
+def home(request):
+    return render(request, 'home.html')
+
 #회원가입
 def signup_view(request):
     res_data = {}

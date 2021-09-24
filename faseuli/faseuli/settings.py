@@ -59,7 +59,7 @@ ROOT_URLCONF = 'faseuli.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['faseuli/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+def money_main(request):
+    return render(request, 'money_main.html')
+
+def money_record(request):
+    return render(request, 'money_record.html')
+
