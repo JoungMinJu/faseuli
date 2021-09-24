@@ -27,11 +27,11 @@ def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        user = auth.authenticate(username = username, password = password)
-        print(user)
-    if user is not None:
-        auth.login(request, user)
-        return redirect('/main')
+        User = auth.authenticate(username = username, password = password)
+        print(User)
+    if User is not None:
+        auth.login(request, User)
+        return redirect('/admin')
     return render(request, '.html')
 
 #로그아웃

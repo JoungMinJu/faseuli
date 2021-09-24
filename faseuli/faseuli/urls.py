@@ -21,7 +21,8 @@ from User import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login', views.login_view, name="login"),
-    path('signup', views.signup_view, name="signup")
+    path('user/signup', views.signup_view, name="signup"),
+    path('user/login', views.login_view, name="login"),
+    path('user/logout', views.logout_view, name="logout")
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
