@@ -1,31 +1,46 @@
+{% extends 'base.html' %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>파슬리</title>
-    <link href="{% static 'css/createPlan.css' %}" rel="stylesheet" type="text/css"/>
-    <link rel="icon" type="image/png" href="../imgs/fire.png">
-</head>
-<body>
-    <div class = "create_plan_container">
-        <form id="create_plan_form">
-            <div class="create_plan_title">계획 만들기</div>
-            <div class="create_plan_input_container">
-                <div class="create_plan_input_title">사진</div>
-                <input type="file" name="image">
-            </div>
-            <div class="create_plan_input_container">
-                <div class="create_plan_input_title">계획 이름</div>
-                <input type="text" class="create_plan" placeholder="계획 이름">
-            </div>
-            <div class="create_plan_input_container">
-                <div class="create_plan_input_title">목표 금액</div>
-                <input type="password" class="create_plan" placeholder="목표 금액">
-            </div>
-            <button id="confirmBtn" disabled>저장</button>
-        </form>
-    </div>
-</body>
+    <head>
+        {% load static %}
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>파슬리</title>
+        <link
+            href="{% static 'css/createPlan.css' %}"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <link rel="icon" type="image/png" href="../imgs/fire.png" />
+    </head>
+    <body>
+        <div class="create_plan_container">
+            <form id="create_plan_form">
+                <div class="create_plan_title">계획 만들기</div>
+                <div class="create_plan_input_container">
+                    <div class="create_plan_input_title">사진</div>
+                    <input type="file" name="image" />
+                </div>
+                <div class="create_plan_input_container">
+                    <div class="create_plan_input_title">계획 이름</div>
+                    <input
+                        type="text"
+                        class="create_plan"
+                        placeholder="계획 이름"
+                    />
+                </div>
+                <div class="create_plan_input_container">
+                    <div class="create_plan_input_title">목표 금액</div>
+                    <input
+                        type="password"
+                        class="create_plan"
+                        placeholder="목표 금액"
+                    />
+                </div>
+                <button id="confirmBtn" disabled>저장</button>
+            </form>
+        </div>
+    </body>
 </html>
+{% endblock %}
