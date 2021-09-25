@@ -3,7 +3,7 @@ h1 {
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 /* main */
@@ -25,26 +25,59 @@ h3 {
     align-items: center;
     background-color: white;
     margin-bottom: 10px;
-    padding-left: 20px;
+    padding-left: 30px;
     border: 1px solid #4ccd97;
     border-radius: 10px;
 }
 
-#record {
+.record {
+    border-radius: 5px;
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(54, 54, 54);
     padding: 10px;
     margin: 0px 15px;
 }
 
+#delete {
+    margin-right: 100px;
+}
 /* detail */
 
 #challenge_clear_btn {
     background-color: #4ccd97;
     color: white;
     border-radius: 30px;
-    padding: 10px 25px;
+    padding: 20px 40px;
     border: none;
+    font-size: 20px;
+}
+.a {
+    display: flex;
+    margin: 0 auto;
+    width: 800px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.total_score {
+    margin-top: 5%;
+    font-size: 35px;
+    font-weight: bold;
+    color: #4ccd97;
+}
+
+.progress_bar {
+    margin-top: 5%;
+    width: 600px;
+    height: 50px;
+    background-color: rgb(190, 190, 190);
+    border-radius: 8px;
+}
+
+.progress_value {
+    height: 50px;
+    background-color: #4ccd97;
+    border-radius: 8px;
 }
 
 /* write */
