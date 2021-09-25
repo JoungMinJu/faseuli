@@ -3,6 +3,7 @@
 <html lang="en">
     <head>
         {% load static %}
+        {% load humanize %}
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,98 +40,358 @@
                 </div>
             </div>
         </section>
+        <br>
         <section id="plan">
+            {%for plan in plans %}
             <div class="plan_container">
                 <div class="plan_image_container">
+                    {% if plan.image  %}
                     <img
-                        src="http://placehold.it/100x100"
+                        src="{{plan.image.url}}"
                         alt="계획사진"
                         class="plan_img"
                     />
-                </div>
-                <div class="plan_description">
-                    <div class="plan_title">포르쉐 사기</div>
-                </div>
-                <div class="plan_point_container">
-                    <div class="plan_point">2억</div>
-                </div>
-                <button class="plan_delete">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-            </div>
-            <div class="plan_container">
-                <div class="plan_image_container">
-                    <img
-                        src="http://placehold.it/100x100"
-                        alt="계획사진"
-                        class="plan_img"
+                    {% else %}
+                    <img src="{% static 'img/plan_default.jpeg' %}"
+                    class="plan_img"
                     />
+                    {% endif%}
                 </div>
                 <div class="plan_description">
-                    <div class="plan_title">카페 차리기</div>
+                    <div class="plan_title">{{plan.title}}</div>
                 </div>
                 <div class="plan_point_container">
-                    <div class="plan_point">4억</div>
+                    <div class="plan_point">{{plan.goal|intcomma}}₩
+                    </div>
                 </div>
-                <button class="plan_delete">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
+                <div class="plan_delete">
+                    <a href="{%url 'plan:edit' plan.id %}">
+                        <img class="feedImg" src="{% static 'img/edit.png' %}" alt="수정">
+                    </a>
+                    <a href="{%url 'plan:del' plan.id %}"> 
+                    <img class="feedImg" src="{% static 'img/delete.png' %}" alt="삭제">
+                    </a>
+                </div>
             </div>
+            {% endfor %}
         </section>
         <!-- Recommand -->
+        <br><br><br>
         <section id="recommand" class="section section__container">
-            <h1># 운동 인생 계획 추천</h1>
+            <h4># {{user_hobby}} 인생 계획 추천</h1>
+
+            {% if user_hobby == "미술" %}
             <div class="recommand__bucketlists">
                 <div class="recommand__bucket">
-                    <div class="recommand__bucket__image"></div>
-                    <h3 class="recommand__bucket__title">스카이 다이빙</h3>
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/museum.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">유럽 미술 투어</h3>
                     <p class="recommand__bucket__description">
-                        예상 금액 : 100만원
+                        500만원
                     </p>
                 </div>
+           
                 <div class="recommand__bucket">
-                    <div class="recommand__bucket__image"></div>
-                    <h3 class="recommand__bucket__title">
-                        영국 축구경기 관람하기
-                    </h3>
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/art_class.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">성인 미술 수업 수강</h3>
                     <p class="recommand__bucket__description">
-                        예상 금액 : 200만원
-                    </p>
-                </div>
-                <div class="recommand__bucket">
-                    <div class="recommand__bucket__image"></div>
-                    <h3 class="recommand__bucket__title">PT 1년 내내 받기</h3>
-                    <p class="recommand__bucket__description">
-                        예상 금액 : 400만원
+                        200만원
                     </p>
                 </div>
             </div>
-            <h1># 음악 인생 계획 추천</h1>
+            {% endif %}
+            {% if user_hobby == "레저" %}
             <div class="recommand__bucketlists">
                 <div class="recommand__bucket">
-                    <div class="recommand__bucket__image"></div>
-                    <h3 class="recommand__bucket__title">음악 풀 장비 사기</h3>
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/para.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">외국에서 패러세일링</h3>
                     <p class="recommand__bucket__description">
-                        예상 금액 : 1000만원
+                        300만원
                     </p>
                 </div>
+          
                 <div class="recommand__bucket">
-                    <div class="recommand__bucket__image"></div>
-                    <h3 class="recommand__bucket__title">
-                        글라스톤베리 락페스티벌 가기
-                    </h3>
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/skydiving.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">스카이다이빙</h3>
                     <p class="recommand__bucket__description">
-                        예상 금액 : 200만원
+                        100만원
                     </p>
                 </div>
+            
                 <div class="recommand__bucket">
-                    <div class="recommand__bucket__image"></div>
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/yacht.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">요트 타기</h3>
+                    <p class="recommand__bucket__description">
+                        200만원
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+            {% if user_hobby == "음악" %}
+            <div class="recommand__bucketlists">
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/buy_equip.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">음악 풀 장비 구매</h3>
+                    <p class="recommand__bucket__description">
+                        1000만원
+                    </p>
+                </div>
+            
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/record.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
                     <h3 class="recommand__bucket__title">앨범 내보기</h3>
                     <p class="recommand__bucket__description">
-                        예상 금액 : 200만원
+                        200만원
+                    </p>
+                </div>
+          
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/rock_fest.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">글라스톤베리 락페스티벌</h3>
+                    <p class="recommand__bucket__description">
+                        200만원
                     </p>
                 </div>
             </div>
+            {% endif %}
+            {% if user_hobby == "공예" %}
+            <div class="recommand__bucketlists">
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/glass.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">유리공예</h3>
+                    <p class="recommand__bucket__description">
+                        30만원
+                    </p>
+                </div>
+            
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/leather.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">가죽공예</h3>
+                    <p class="recommand__bucket__description">
+                        50만원
+                    </p>
+                </div>
+          
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/rattan.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">라탄공예</h3>
+                    <p class="recommand__bucket__description">
+                        80만원
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+            {% if user_hobby == "스포츠" %}
+            <div class="recommand__bucketlists">
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/pt.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">1년동안 PT받기</h3>
+                    <p class="recommand__bucket__description">
+                        400만원
+                    </p>
+                </div>
+          
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/soccer.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">영국 축구경기관람</h3>
+                    <p class="recommand__bucket__description">
+                        200만원
+                    </p>
+                </div>
+            </div>
+           
+            {% endif %}
+            {% if user_hobby == "재테크" %}
+            <div class="recommand__bucketlists">
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/stock.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">주식 시드 모으기</h3>
+                    <p class="recommand__bucket__description">
+                        1000만원
+                    </p>
+                </div>
+   
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/bitcoin.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">비트코인 시드 모으기</h3>
+                    <p class="recommand__bucket__description">
+                        800만원
+                    </p>
+                </div>
+            
+            
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/building.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">부동산 투자</h3>
+                    <p class="recommand__bucket__description">
+                        3억
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+            {% if user_hobby == "여행" %}
+            <div class="recommand__bucketlists">
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/south_america.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">남미여행</h3>
+                    <p class="recommand__bucket__description">
+                        800만원
+                    </p>
+                </div>
+      
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/universe.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">우주여행</h3>
+                    <p class="recommand__bucket__description">
+                        2억
+                    </p>
+                </div>
+       
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/world.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">세계일주</h3>
+                    <p class="recommand__bucket__description">
+                        3억
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+            {% if user_hobby == "사업" %}
+            <div class="recommand__bucketlists">
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/cafe.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">카페 창업</h3>
+                    <p class="recommand__bucket__description">
+                        2억
+                    </p>
+                </div>
+          
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/workshop.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">공방 차리기</h3>
+                    <p class="recommand__bucket__description">
+                        4억
+                    </p>
+                </div>
+        
+                <div class="recommand__bucket">
+                    <div class="recommand__bucket__image">
+                    <img
+                        src="{% static 'img/guesthouse.jpg' %}"
+                        class="recommand_img"
+                    />
+                    </div>
+                    <h3 class="recommand__bucket__title">게스트하우스 차리기</h3>
+                    <p class="recommand__bucket__description">
+                        3억
+                    </p>
+                </div>
+            </div>
+           {% endif %} 
         </section>
     </body>
 </html>
