@@ -33,7 +33,6 @@ def challenge_write(req):
         Challenge_object.title=req.POST['title']
         Challenge_object.cost=req.POST['cost']
         Challenge_object.goal=req.POST['goal']
-        Challenge_object.now=req.POST['now']
         Challenge_object.save()
-        return redirect('/challenge/main')
+        #return redirect('/challenge/main')
     return render(req,'challenge_write.html', {'data': Challenge_object})

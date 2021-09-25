@@ -7,7 +7,7 @@ class Challenge(models.Model):
     title=models.CharField(max_length=50)
     cost=models.PositiveIntegerField()
     goal=models.PositiveIntegerField()
-    now=models.PositiveIntegerField()
+    now=models.PositiveIntegerField(null=True)
 
 class History(models.Model):
     date=DateField(auto_now_add=True)
