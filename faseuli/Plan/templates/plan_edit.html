@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>파슬리</title>
+        <link
+            href="{% static 'css/createPlan.css' %}"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <link rel="icon" type="image/png" href="../imgs/fire.png" />
+    </head>
+    <body>
+        <div class="create_plan_container">
+            <form action="{% url 'plan:update' plan.id %}" method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+                <div class="create_plan_title">계획 수정하기</div>
+                <div class="create_plan_input_container">
+                    <div class="create_plan_input_title">사진</div>
+                    <input type="file" name="image" value = "{{plan.image}}"/>
+                </div>
+                <div class="create_plan_input_container">
+                    <div class="create_plan_input_title">계획 이름</div>
+                    <input
+                        type="text"
+                        class="create_plan"
+                        name="title"
+                        value = "{{plan.title}}"
+                    />
+                </div>
+                <div class="create_plan_input_container">
+                    <div class="create_plan_input_title">목표 금액</div>
+                    <input
+                        type="text"
+                        class="create_plan"
+                        name="goal"
+                        value = "{{plan.goal}}"
+                    />
+                </div>
+                <button id="confirmBtn" type="submit">저장</button>
+            </form>
+        </div>
+    </body>
+</html>
+{% endblock %}

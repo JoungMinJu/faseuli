@@ -27,7 +27,7 @@ class Plan(models.Model):
 class RecommendPlan(models.Model):
     title=models.CharField(max_length=200)
     #제목
-    goal=models.IntegerField(default=0)
+    goal=models.CharField(max_length=200)
     #비용
     image=models.ImageField(upload_to='images',blank=True, null=True)
     #이미지

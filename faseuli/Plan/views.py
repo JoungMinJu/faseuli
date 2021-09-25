@@ -3,6 +3,9 @@ from .models import *
 
 # Create your views here.
 
+
+
+
 def plan_main(request):
     user=request.user
     user_hobby=user.hobby 
@@ -10,7 +13,7 @@ def plan_main(request):
     plans=Plan.objects.filter(user=user)
     #recommend=로 해서 유저의 hobby에 따른 추천목록을 보여줘야함.
     recommend=RecommendPlan.objects.filter(hobby=user_hobby)
-    return render(request,'plan_main.html',{'plans':plans,'recommend':recommend})
+    return render(request,'plan_main.html',{'plans':plans,'recommend':recommend,'user_hobby':user_hobby})
 
 #플랜 작성하는 페이지로 이동하는 함수
 def plan_add(request): 
@@ -34,7 +37,7 @@ def plan_del(request,id):
 def edit_plan(request, id):
     edit=Plan.objects.get(id=id)
     #edit_plan.html로 이동
-    return render(request, 'plan/plan_edit.html',{'plans':edit})
+    return render(request, 'plan_edit.html',{'plan':edit})
 
 def update_plan(request,id):
     update_plan=Plan.objects.get(id=id)

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Plan.apps.PlanConfig',
     'Money.apps.MoneyConfig',
     'Challenge.apps.ChallengeConfig',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
