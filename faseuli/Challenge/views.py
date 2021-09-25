@@ -2,7 +2,7 @@ from .models import Challenge, History
 from django.shortcuts import render
 
 def challenge_main(request):
-    Challenge_object=Challenge.obejcts.all()
+    Challenge_object=Challenge.objects.all()
     data ={
         # 'all_save':, 전체 총계
         'challenge': Challenge_object
