@@ -1,13 +1,13 @@
 from .models import Challenge, History
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render, redirect
 
 def challenge_main(request):
     Challenge_object=Challenge.objects.all()
     #data ={
-    #    # 'all_save':, 전체 총계
-    #    'challenge': Challenge_object
+        #'all_save':, 전체 총계
+      #  'challenge': Challenge_object
     #}
-    return render(request, 'challenge_main.html', {'data': Challenge_object})
+    return render(request, 'challenge_main.html', {'data':Challenge_object})
 
 def challenge_detail(request, id):
     Challenge_object=get_object_or_404(Challenge, pk=id)
@@ -25,7 +25,7 @@ def new_history(req,id): #??
         History_object.cost=req.POST['cost']
         History_object.Challenge=id
         History_object.save()
-    return redirect('/challenge/detail/'+int(id))
+    return redirect('/challenge/detail/'+str(id))
 
 def challenge_write(req):
     Challenge_object=Challenge()
