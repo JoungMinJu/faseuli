@@ -3,11 +3,11 @@ from django.shortcuts import render
 
 def challenge_main(request):
     Challenge_object=Challenge.objects.all()
-    data ={
-        # 'all_save':, 전체 총계
-        'challenge': Challenge_object
-    }
-    return render(request, 'challenge_main.html', data)
+    #data ={
+    #    # 'all_save':, 전체 총계
+    #    'challenge': Challenge_object
+    #}
+    return render(request, 'challenge_main.html', {'data': Challenge_object})
 
 def challenge_detail(request, id):
     Challenge_object=get_object_or_404(Challenge, pk=id)
@@ -34,5 +34,5 @@ def challenge_write(req):
         Challenge_object.cost=req.POST['cost']
         Challenge_object.goal=req.POST['goal']
         Challenge_object.save()
-        #return redirect('/challenge/main')
+        return redirect('/challenge/main')
     return render(req,'challenge_write.html', {'data': Challenge_object})
