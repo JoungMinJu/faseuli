@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import *
+from . import views
 
 urlpatterns = [
-    path('main/', challenge_main, name="main"),
-    path('detail/', challenge_detail, name="detail"),
-    path('write/', challenge_write, name="write"),
+    path('main', views.challenge_main, name="main"),
+    path('detail/<int:id>', views.challenge_detail, name="detail"),
+    path('write/<int:id>', views.challenge_write, name="write"),
 ]
