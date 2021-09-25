@@ -1,4 +1,5 @@
-
+{% extends 'base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>파슬리</title>
     <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css"/>
-    <script src="https://kit.fontawesome.com/881cd29a28.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawetsome.com/881cd29a28.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Main Page -->
@@ -21,7 +22,7 @@
                     <b><div class="progress_title">현재 : 2억</div></b>
                     <b><div class="progress_title">달성률 : 33%</div></b>
                 </div>
-                <a href="#">
+                <a href="/plan/add">
                     <button id="make_plan_Btn">새 계획 만들기</button>
                 </a>
             </div>
@@ -108,3 +109,4 @@
     </section>
 </body>
 </html>
+{% endblock %}
