@@ -17,10 +17,10 @@ def signup_view(request):
             nickname= request.POST['nickname'],
             age=request.POST['age'],
             hobby=request.POST['hobby'],
-        )
-        user.save()
-        auth.login(request, user)
-        return redirect('/login')
+            )
+            user.save()
+            auth.login(request, user)
+            return redirect('/user/login')
     else:
         res_data['error'] = '비밀번호가 다릅니다.'
     return render(request, 'signup.html', res_data)
@@ -34,11 +34,11 @@ def login_view(request):
         print(User)
         if User is not None:
             auth.login(request, User)
-            return redirect('/')
+            return redirect('/plan/main')
     return render(request, 'login.html')
 
 #로그아웃
 @login_required
 def logout_view(request):
     auth.logout(request)
-    return redirect('')
+    return redirect('/')
