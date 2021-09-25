@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     path('main', views.challenge_main, name="main"),
-    path('detail', views.challenge_detail, name="detail"),
+    path('detail/<str:id>', views.challenge_detail, name="Challenge_detail"),
     path('write', views.challenge_write, name="write"),
-    path('new_history', views.new_history, name="new_history")
+    path('new_history/<str:id>', views.new_history, name="new_history")
 ]
