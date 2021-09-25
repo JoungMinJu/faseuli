@@ -1,12 +1,36 @@
-{% extends 'base.html' %}
-{% block content %}
-{% load static %}
+{% extends 'base.html' %} {% block content %} {% load static %}
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/challenge.css' %}"> 
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="{% static 'css/challenge.css' %}"
+    />
 </head>
 
 <body>
     <h1>New Challenge</h1>
-
+    <form>
+        <div class="challenge_input_container">
+            <div class="challenge_input_title">제목</div>
+            <input type="text" class="create_challenge" placeholder="제목" />
+        </div>
+        <div class="challenge_input_container">
+            <div class="create_plan_input_title">절약 비용</div>
+            <input
+                type="text"
+                class="create_challenge"
+                placeholder="절약 비용"
+            />
+        </div>
+        <div class="challenge_input_container">
+            <div class="create_plan_input_title">목표 횟수</div>
+            <input
+                type="text"
+                class="create_challenge"
+                placeholder="목표 횟수"
+            />
+        </div>
+        <button id="confirmBtn" disabled>저장</button>
+    </form>
 </body>
 {% endblock %}
