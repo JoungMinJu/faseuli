@@ -9,10 +9,12 @@
 
 <body>
     <h1>New Challenge</h1>
-    <form>
+    
+    <form action="{%url 'write' %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%} 
         <div class="challenge_input_container">
             <div class="challenge_input_title">제목</div>
-            <input type="text" class="create_challenge" placeholder="제목" />
+            <input type="text" class="create_challenge" placeholder="제목" name="title"/>
         </div>
         <div class="challenge_input_container">
             <div class="create_plan_input_title">절약 비용</div>
@@ -20,6 +22,7 @@
                 type="text"
                 class="create_challenge"
                 placeholder="절약 비용"
+                name="cost"
             />
         </div>
         <div class="challenge_input_container">
@@ -28,9 +31,10 @@
                 type="text"
                 class="create_challenge"
                 placeholder="목표 횟수"
+                name="goal"
             />
         </div>
-        <button id="confirmBtn" disabled>저장</button>
+        <button type ="submit" id="confirmBtn">저장</button>
     </form>
 </body>
 {% endblock %}
