@@ -1,22 +1,20 @@
-{% extends 'base.html' %} {% block content %} {% load static %}
+
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
 <head>
-    <link
-        rel="stylesheet"
-        type="text/css"
-        href="{% static 'css/money.css' %}"
-    />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/money.css' %}"> 
 </head>
 <body>
-    <h1>Saving Money</h1>
-    <br />
-    나의 저축 목표 금액 : 3억원<br />
-    현재 : 1억 5천만원
-    <a href="{% url 'record' %}" id="money_record">record</a><br />
-    저축률 : 50% <br />
-
-    <hr />
-    <h3>내역</h3>
-    9/5 +500000<br />
-    8/12 +300000<br />
+    <h1><br><br>Recording Money</h1>
+    <br>
+    <div class="d"> 
+    ➕ <input type="text"> 원<br><br>
+    <br><a href="" id="money_record"> Save </a>
+    <br><br></div>
+    <h3>내역<br><br></h3>
+    9/25    +500,000<br />
+    8/14    +300,000<br />
+</body>
 </body>
 {% endblock %}

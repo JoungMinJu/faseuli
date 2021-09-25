@@ -7,9 +7,11 @@ class Challenge(models.Model):
     title=models.CharField(max_length=50)
     cost=models.PositiveIntegerField()
     goal=models.PositiveIntegerField()
-    now=models.PositiveIntegerField(null=True)
+    now=models.PositiveIntegerField(null=True, default=0)
+    def __str__(self):
+        return self.title
 
 class History(models.Model):
     date=DateField(auto_now_add=True)
     cost=models.PositiveIntegerField()
-    Challenge=models.ForeignKey(Challenge, on_delete=models.CASCADE)
+    challenge=models.ForeignKey(Challenge, on_delete=models.CASCADE, related_name='history')

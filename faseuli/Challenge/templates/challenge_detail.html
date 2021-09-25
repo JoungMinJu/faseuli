@@ -8,14 +8,21 @@
 </head>
 
 <body>
-    <h1>Record</h1>
-    {{data.title}}
-    자전거 타기
-    <input type="button" value="오늘 달성" id="challenge_clear_btn" /><br />
-
-    <hr />
+    <br><br>
+    <!-- <h3>{{data.title}}</h3> -->
+    
     <h3>현재까지 달성 내역</h3>
-    9/5 달성<br />
-    8/12 달성<br />
+    
+    <div class="a">
+        <div class="total_score">10 / 30</div>
+        <div class="progress_bar">
+            <div class="progress_value" style="width: 30%"></div>
+        </div>
+    </div>
+    <br><br>
+    <a href="{%url 'new_history' data.id %}"><input type="button" value="오늘 달성" id="challenge_clear_btn" /></a><br>
+    
+</div>
+    
 </body>
 {% endblock %}
