@@ -2,12 +2,8 @@ from .models import Challenge, History
 from django.shortcuts import render
 
 def challenge_main(request):
-    Challenge_object=Challenge.objects.all()
-    #data ={
-    #    # 'all_save':, 전체 총계
-    #    'challenge': Challenge_object
-    #}
-    return render(request, 'challenge_main.html', {'data': Challenge_object})
+    data=Challenge.objects.all()
+    return render(request, 'challenge_main.html', {'data':data})
 
 def challenge_detail(request, id):
     Challenge_object=get_object_or_404(Challenge, pk=id)

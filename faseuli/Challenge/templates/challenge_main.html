@@ -10,17 +10,15 @@
 <body>
     <h1>Challenge</h1>
     <div>
-        <a href="{% url 'write' %}" id="make_challenge">new challenge</a>
-      
-    {% for d in data %}
         현재까지 ##원을 아꼈어요!
         <a href="{% url 'write' %}" id="make_challenge">new challenge</a>
       
+        {% for d in data %}
+       
         <div class="content">
-             51/100
-            <a href="{%url 'detail' d.id%}" id="record">기록하기</a>
-    </div>
-    {% endfor %}
+             {{d.title}} {{d.now}}/{{d.goal}}
+        </div>
+        {% endfor %}
 </div>
   
 </body>
