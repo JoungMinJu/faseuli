@@ -24,9 +24,11 @@
             <div class="progress_container">
                 <div class="progress_subcontainer">
                     <div class="progress_text">
-                        <div class="progress_user">사자님</div>
+                        <div class="progress_user">{{user.nickname}}  님🥬</div>
                         <b><div class="progress_title">목표 : 6억</div></b>
-                        <b><div class="progress_title">현재 : 2억</div></b>
+                        <b><div class="progress_title">현재 : 
+                            {{total_cost|intcomma}} 원
+                        </div></b>
                         <b><div class="progress_title">달성률 : 33%</div></b>
                     </div>
                     <a href="/plan/add">
@@ -76,7 +78,7 @@
             {% endfor %}
         </section>
         <!-- Recommand -->
-        <br><br><br>
+        <br><br><br><br><br><br>
         <section id="recommand" class="section section__container">
             <h4># {{user_hobby}} 인생 계획 추천</h1>
 

@@ -3,17 +3,17 @@ from .models import *
 
 # Create your views here.
 
-
-
-
 def plan_main(request):
     user=request.user
     user_hobby=user.hobby 
     #user의 hobby를 가져옴
     plans=Plan.objects.filter(user=user)
+    total_cost=0
+    for p in plans:
+        total_cost=total_cost+p.goal
     #recommend=로 해서 유저의 hobby에 따른 추천목록을 보여줘야함.
     recommend=RecommendPlan.objects.filter(hobby=user_hobby)
-    return render(request,'plan_main.html',{'plans':plans,'recommend':recommend,'user_hobby':user_hobby})
+    return render(request,'plan_main.html',{'plans':plans,'recommend':recommend,'user_hobby':user_hobby, 'total_cost':total_cost})
 
 #플랜 작성하는 페이지로 이동하는 함수
 def plan_add(request): 
