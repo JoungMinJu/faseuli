@@ -7,7 +7,7 @@ def plan_main(request):
     user=request.user
     user_hobby=user.hobby 
     #user의 hobby를 가져옴
-    plans=Plan.objects.filter(writer=user)
+    plans=Plan.objects.filter(user=user)
     #recommend=로 해서 유저의 hobby에 따른 추천목록을 보여줘야함.
     recommend=RecommendPlan.objects.filter(hobby=user_hobby)
     return render(request,'plan_main.html',{'plans':plans,'recommend':recommend})
