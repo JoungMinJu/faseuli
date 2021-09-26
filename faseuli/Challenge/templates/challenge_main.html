@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %} {% load static %}
+{% extends 'base.html' %} {% block content %} {% load static %}{% load humanize %}
 <head>
     <link
         rel="stylesheet"
@@ -11,17 +11,18 @@
     <br /><br /><br /><br />
     <h1>Challenge</h1>
     <div>
-        현재까지 {{sum}}원을 아꼈어요!
-        <a href="{% url 'write' %}" id="make_challenge">new challenge</a>
+        <a href="{% url 'challenge:write' %}" id="make_challenge">new challenge</a>
         <br />
+        <br>
         {% for d in data %}
 
         <div class="content">
-            {{d.title}} +{{d.cost}}원 <br />
-            {{d.now}}/{{d.goal}}
-            <a id="delete" href="{%url 'delete' d.id %}">❌</a>
+            ✔{{d.title}}
+            <br>+{{d.cost|intcomma}}원<br />
+            
+            <a id="delete" href="{%url 'challenge:delete' d.id %}" style="text-align: center;">❌</a>
             <div class="record">
-                <a href="{%url 'detail' d.id %}">기록하기</a>
+                <a href="{%url 'challenge:detail' d.id %}">기록하기</a>
             </div>
         </div>
 

@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %} {% load static %}
+{% extends 'base.html' %} {% block content %} {% load static %}{% load humanize %}
 <head>
     <link
         rel="stylesheet"
@@ -11,18 +11,31 @@
     <br><br>
     <!-- <h3>{{data.title}}</h3> -->
     
-    <h3>현재까지 달성 내역</h3>
+    <h3 style="font-weight: bold;">&nbsp;💚   &nbsp; 현재까지 달성 내역 &nbsp;   💚</h3>
     
     <div class="a">
-        <div class="total_score">10 / 30</div>
-        <div class="progress_bar">
-            <div class="progress_value" style="width: 30%"></div>
-        </div>
+        <div class="total_score" style="margin-right:20px; font-size: 25px; text-align: center;">{{history_data|length}} / {{data.goal}}</div>
+        <div class="progress_bar" >
+            <div class="progress_value" style="width: {{p}}%"></div> 
+        </div> 
+        <p style='text-align: center; margin-top: 50px;'>
+        {% if p == 100 %}
+        &nbsp;&nbsp;🎉✨
+        {% endif %}
+        </p>
     </div>
-    <br><br>
-    <a href="{%url 'new_history' data.id %}"><input type="button" value="오늘 달성" id="challenge_clear_btn" /></a><br>
+    <br>
+    <a href="{%url 'challenge:new_history' data.id %}"><input type="button" value="오늘 달성" id="challenge_clear_btn" /></a><br>
     
-</div>
-    
+</div><br><br><br>
+<h5>총  <span style="text-decoration:underline;">{{total_cost|intcomma}}</span> 원을 아꼈어요! 🐸</h5>
+<br><br><br>
+<h3 style="font-weight: bold;">내역<br><br></h3>
+{% for s in history_data %}
+{{s.date|date:"Y-m-d"}}    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  +{{s.cost}}원<br />
+{% endfor %}
+
+
+
 </body>
 {% endblock %}

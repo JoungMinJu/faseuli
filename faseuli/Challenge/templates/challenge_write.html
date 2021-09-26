@@ -10,7 +10,7 @@
 <body>
     <h1>New Challenge</h1>
     
-    <form action="{%url 'write' %}" method="post" enctype="multipart/form-data">
+    <form action="{%url 'challenge:write' %}" method="post" enctype="multipart/form-data">
         {%csrf_token%} 
         <div class="challenge_input_container">
             <div class="challenge_input_title">제목</div>
