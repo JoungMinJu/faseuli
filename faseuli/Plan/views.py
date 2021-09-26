@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
+import sys
+sys.path.append("..")
+from Money.models import *
 
 # Create your views here.
 
@@ -13,7 +16,15 @@ def plan_main(request):
         total_cost=total_cost+p.goal
     #recommend=로 해서 유저의 hobby에 따른 추천목록을 보여줘야함.
     recommend=RecommendPlan.objects.filter(hobby=user_hobby)
-    return render(request,'plan_main.html',{'plans':plans,'recommend':recommend,'user_hobby':user_hobby, 'total_cost':total_cost})
+    Money_objects=Money.objects.filter(user=user)
+    goal_cost=0
+    for m in Money_objects:
+        goal_cost=goal_cost+m.cost
+    p=(goal_cost/total_cost)*100
+    percent=round(p,2)
+    if p>=100:
+        percent=100
+    return render(request,'plan_main.html',{'goal_cost':goal_cost,'plans':plans,'recommend':recommend,'user_hobby':user_hobby, 'total_cost':total_cost,'p':p,'percent':percent})
 
 #플랜 작성하는 페이지로 이동하는 함수
 def plan_add(request): 

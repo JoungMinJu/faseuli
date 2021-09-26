@@ -39,7 +39,7 @@ h3 {
 }
 
 #delete {
-    margin-right: 100px;
+    margin-right: 10px;
 }
 /* detail */
 
@@ -55,13 +55,13 @@ h3 {
     display: flex;
     margin: 0 auto;
     width: 800px;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
 .total_score {
     margin-top: 5%;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
     color: #4ccd97;
 }

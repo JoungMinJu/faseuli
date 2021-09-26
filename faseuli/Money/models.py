@@ -2,18 +2,20 @@ from django.db import models
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import DateField
 # Create your models here.
+from django.contrib.auth.models import User
+import sys
+sys.path.append("..")
+from django.conf import settings
+from django.utils import timezone
+
 
 class Money(models.Model):
     #user=models.CharField(max_length=50)
+    id=models.AutoField(primary_key=True)
+    user=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="작성자", default="")
+    #작성자
     cost=models.PositiveIntegerField()
-    goal=models.PositiveIntegerField()
-    percent=models.FloatField(null=True, default=0)
+    date=DateField(auto_now_add=True)
 
     def __str__(self):
-        percent=cost/goal*100
         return self.goal
-
-class History(models.Model):
-    date=DateField(auto_now_add=True)
-    cost=models.PositiveIntegerField()
-    Money=models.ForeignKey(Money, on_delete=models.CASCADE, related_name='history')

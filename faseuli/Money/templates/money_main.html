@@ -2,6 +2,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+{% load humanize %}
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/money.css' %}"> 
 </head>
@@ -9,12 +10,19 @@
     <h1><br><br>Recording Money</h1>
     <br>
     <div class="d"> 
-    ➕ <input type="text"> 원<br><br>
-    <br><a href="" id="money_record"> Save </a>
-    <br><br></div>
-    <h3>내역<br><br></h3>
-    9/25    +500,000<br />
-    8/14    +300,000<br />
+        <form action="{%url 'money:record' %}" method="post" enctype='mulipart/form.data'>
+            {%csrf_token%}
+            ➕ <input type="text" name='cost'> 원<br><br>
+            <button  id='money_record' type='submit'>save</button>
+        </form>
+    <br><br>
+    </div>
+
+    <h3 style="font-weight: bold;">내역<br><br></h3>
+    {% for d in data %}
+    ✔ {{d.date|date:"Y/m/d"}}&nbsp;&nbsp;+{{d.cost|intcomma}} 원<br>
+    {% endfor %}
+    
 </body>
 </body>
 {% endblock %}
