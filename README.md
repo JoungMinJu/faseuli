@@ -10,7 +10,7 @@
 <br>
 
 ## 서비스 내용
-###**실행**
+### **실행**
 ```python
 pip install -r requirements.txt
 python manage.py runserver
